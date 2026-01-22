@@ -1,0 +1,180 @@
+.main {
+    background-color: var(--color-black);
+    min-height: 100vh;
+    color: var(--color-white);
+}
+
+.titleSection {
+    padding: 180px 0 100px;
+    background: var(--color-black);
+}
+
+.heading {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: var(--color-white);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.subHeading {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+}
+
+/* Services List Styles */
+.servicesSection {
+    padding-bottom: 120px;
+}
+
+.serviceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.serviceRow:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.serviceHeader {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.serviceNumber {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.serviceTitle {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-white);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.serviceBody {
+    width: 50%;
+}
+
+.serviceDesc {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    /* Light gray for description */
+    line-height: 1.7;
+}
+
+/* Partnership Section */
+.partnershipSection {
+    padding: 100px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.label {
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.partnershipHeading {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--color-white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* How We Help Section */
+.howWeHelpSection {
+    padding: 100px 0;
+    background: #050505;
+}
+
+.sectionHeading {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--color-white);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.descriptionBlock {
+    margin-bottom: 80px;
+    max-width: 800px;
+}
+
+.descriptionBlock p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.featureCard {
+    background: var(--color-black);
+    padding: 40px 30px;
+    border-top: 2px solid var(--color-accent);
+}
+
+.featureCard h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.featureCard p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .serviceRow {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .serviceHeader,
+    .serviceBody {
+        width: 100%;
+    }
+
+    .grid,
+    .featuresGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+}
