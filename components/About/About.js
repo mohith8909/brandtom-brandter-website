@@ -9,7 +9,7 @@ export default function About() {
                 <div className={styles.contentWrapper}>
                     <div className={styles.imageCol}>
                         <Image
-                            src="/assets/portf5-copyright-890x664.jpg"
+                            src="/assets/new/about_team_1769107718949.png"
                             alt="Our Philosophy"
                             fill
                             className={styles.image}

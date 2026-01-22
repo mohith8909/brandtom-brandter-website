@@ -6,29 +6,29 @@ export default function Hero() {
     return (
         <section className={styles.hero} id="home">
             {/* Collage Images */}
-            {/* Top Left - Using placeholder '1-1' */}
+            {/* Top Left - Creative Director */}
             <div className={`${styles.collageImage} ${styles.imgTopLeft}`}>
-                <Image src="/assets/hero/261_1-1-copyright1.jpg" alt="Creative" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/new/hero_creative_director_1769107562116.png" alt="Creative Strategy" fill style={{ objectFit: 'cover' }} />
             </div>
 
-            {/* Top Right - Using placeholder '1-2' */}
+            {/* Top Right - Modern Office */}
             <div className={`${styles.collageImage} ${styles.imgTopRight}`}>
-                <Image src="/assets/hero/261_1-2-copyright1.jpg" alt="City" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/new/hero_modern_office_1769107598640.png" alt="Modern Agency" fill style={{ objectFit: 'cover' }} />
             </div>
 
-            {/* Bottom Left - Using placeholder '1-3' */}
+            {/* Bottom Left - Designer Sketch */}
             <div className={`${styles.collageImage} ${styles.imgBottomLeft}`}>
-                <Image src="/assets/hero/261_1-3-copyright1.jpg" alt="Architecture" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/new/hero_designer_sketch_1769107615839.png" alt="Creative Process" fill style={{ objectFit: 'cover' }} />
             </div>
 
-            {/* Bottom Right - Using placeholder '1-4' */}
+            {/* Bottom Right - Digital Tech */}
             <div className={`${styles.collageImage} ${styles.imgBottomRight}`}>
-                <Image src="/assets/hero/261_1-4-copyright1.jpg" alt="Lifestyle" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/new/hero_digital_tech_1769107581068.png" alt="Digital Innovation" fill style={{ objectFit: 'cover' }} />
             </div>
 
-            {/* Extra Side Image - '1-6' */}
+            {/* Extra Side Image - Abstract Art */}
             <div className={`${styles.collageImage} ${styles.imgExtra}`}>
-                <Image src="/assets/hero/261_1-6-copyright1.jpg" alt="Abstract" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/new/hero_abstract_art_1769107632040.png" alt="Artistic Vision" fill style={{ objectFit: 'cover' }} />
             </div>
 
             <div className={styles.content}>

@@ -26,7 +26,7 @@ export default function Expertise() {
 
                     <div className={styles.imageWrapper}>
                         <Image
-                            src="/assets/quantum-img-28-copyright-410x230.jpg"
+                            src="/assets/new/expertise_strategy_1769107734480.png"
                             alt="Expertise"
                             width={600}
                             height={400}
