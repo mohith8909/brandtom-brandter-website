@@ -15,11 +15,23 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: 30px;
+    padding-bottom: 20px;
+    /* Space for scrollbar if any, or just breathing room */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
 }
 
+.grid::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Brave */
+}
+
+/* Desktop Defaults */
 .card {
     background: #0F0F0F;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -30,6 +42,44 @@
     display: flex;
     flex-direction: column;
     min-height: 500px;
+
+    /* 3 cards visible logic */
+    flex: 0 0 calc(33.333% - 20px);
+    /* 33% minus gap adjustment */
+    min-width: 0;
+    /* Allow shrinking if needed, but flex-basis handles it */
+    max-width: calc(33.333% - 20px);
+    /* Strict max width to force wrap */
+
+    scroll-snap-align: start;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /* Legacy support */
+    hyphens: auto;
+}
+
+/* ... existing hover styles ... */
+
+@media (max-width: 900px) {
+    .grid {
+        margin: 0;
+        padding: 0 20px 20px 20px;
+    }
+
+    .card {
+        /* 1 card visible logic */
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
+
+        scroll-snap-align: center;
+    }
+
+    .heading {
+        font-size: 2.5rem;
+    }
 }
 
 .card:hover {
@@ -57,6 +107,9 @@
     flex-grow: 1;
     position: relative;
     z-index: 2;
+    white-space: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .cardLink {
@@ -88,16 +141,4 @@
 .card:hover .cardBackground {
     opacity: 0.3;
     transform: scale(1.05);
-}
-
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .heading {
-        font-size: 2.5rem;
-    }
 }

@@ -160,3 +160,54 @@
         }
     }
 }
+
+.definitions {
+    margin-bottom: 40px;
+}
+
+.defItem {
+    margin-bottom: 30px;
+}
+
+.defItem h3 {
+    font-size: 1.5rem;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+}
+
+.defItem p {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+.missionVision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mvItem h4 {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.mvItem p {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .missionVision {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
