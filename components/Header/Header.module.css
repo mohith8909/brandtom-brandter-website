@@ -1,0 +1,224 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    background: rgba(5, 5, 5, 0.95);
+    /* Dark background */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism effect */
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.headerHidden {
+    transform: translateY(-100%);
+}
+
+.leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    /* Space between Logo and Nav */
+}
+
+.logoContainer {
+    width: 280px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navLink {
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    text-transform: capitalize !important;
+    font-weight: 500;
+    opacity: 1;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.navLink:hover {
+    color: var(--color-accent);
+}
+
+.rightGroup {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.phone {
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ctaButton {
+    background: #FF3E00;
+    color: var(--color-white);
+    padding: 12px 30px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.mobilePhone {
+    display: none;
+}
+
+.ctaButton:hover {
+    background: #FF5722;
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #050505;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.menuOpen {
+    transform: translateX(0);
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+.mobileLink {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobileLink:hover {
+    color: var(--color-accent);
+}
+
+@media (max-width: 1200px) {
+    .nav {
+        display: none;
+    }
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .logoContainer {
+        width: 180px;
+    }
+
+    .phone {
+        display: none;
+    }
+
+    .ctaButton {
+        display: none;
+    }
+
+    .rightGroup {
+        gap: 15px;
+    }
+
+    .mobilePhone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: #FF3E00;
+        border-radius: 50%;
+        margin-right: 0;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .mobilePhone:active {
+        transform: scale(0.95);
+        background-color: #E63500;
+    }
+
+    .mobilePhone svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+
+    .hamburger {
+        display: flex;
+        margin-left: 0;
+    }
+}

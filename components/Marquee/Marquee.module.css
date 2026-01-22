@@ -1,0 +1,63 @@
+.marqueeSection {
+    padding: 40px 0;
+    background: var(--accent);
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.track {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+    width: fit-content;
+}
+
+.trackReverse {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollReverse 20s linear infinite;
+    width: fit-content;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollReverse {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.text {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-right: 60px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+}
+
+.filled {
+    -webkit-text-stroke: 0;
+}
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 2.5rem;
+    }
+}

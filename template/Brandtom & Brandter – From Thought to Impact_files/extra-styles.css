@@ -1,0 +1,187 @@
+/* Icons Modern */
+.sc_icons_modern .sc_icons_icon {
+  background-color: var(--theme-color-alter_bg_color);
+}
+
+/* Layout Iconed Text */
+.sc_layouts_row_type_compact .sc_layouts_iconed_text:not(.sc_layouts_menu_mobile_button):not(.sc_layouts_menu_mobile_button_burger) .sc_layouts_iconed_text_link .sc_layouts_iconed_text_icon {
+  background-color: var(--theme-color-text_link);
+}
+
+/* Team Accent */
+.sc_team_accent .post_featured .trx_addons_hover_mask {
+  background-color: var(--theme-color-text_link);
+}
+
+/* Price Metro */
+.sc_price_metro .sc_price_item.sc_price_active,
+.sc_price_metro .sc_price_item {
+  box-shadow: none;
+}
+
+/* Price Plain */
+.sc_price_plain .sc_price_item {
+  box-shadow: none;
+}
+
+body:not(.search-no-results) .content .search_wrap.search_style_normal .search_submit {
+  font-size: 23px;
+  left: auto;
+  right: 0;
+  bottom: 1.05em;
+}
+@media (max-width: 1023px) {
+  body:not(.search-no-results) .content .search_wrap.search_style_normal .search_submit {
+    font-size: 22px;
+    bottom: 1em;
+  }
+}
+@media (max-width: 767px) {
+  body:not(.search-no-results) .content .search_wrap.search_style_normal .search_submit {
+    font-size: 20px;
+    bottom: 0.8em;
+  }
+}
+body:not(.search-no-results) .content .search_wrap.search_style_normal .search_field {
+  font-size: 29px;
+  padding: 15px 1.5em 15px 0 !important;
+}
+@media (max-width: 1023px) {
+  body:not(.search-no-results) .content .search_wrap.search_style_normal .search_field {
+    font-size: 23px;
+  }
+}
+@media (max-width: 767px) {
+  body:not(.search-no-results) .content .search_wrap.search_style_normal .search_field {
+    font-size: 19px;
+    padding: 10px 1.5em 10px 0 !important;
+  }
+}
+
+/* Testi Extra */
+.sc_testimonials_extra .sc_testimonials_item .sc_testimonials_item_content:before {
+  color: var(--theme-color-text_link);
+}
+
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-duplicate-active + .swiper-slide-duplicate-next .sc_testimonials_item_content,
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-active + .swiper-slide-next .sc_testimonials_item_content,
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-next .sc_testimonials_item_content {
+  background-color: var(--theme-color-text_link);
+}
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-duplicate-active + .swiper-slide-duplicate-next .sc_testimonials_item_content:after,
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-active + .swiper-slide-next .sc_testimonials_item_content:after,
+body:not(.mobile_layout) .sc_testimonials_extra .slider_container[data-slides-per-view="3"] .swiper-slide-next .sc_testimonials_item_content:after {
+  background-color: var(--theme-color-text_link);
+}
+
+/* Custom BTN */
+.round-square.big .elementor-button {
+  width: 271px;
+  height: 271px;
+  line-height: 270px;
+}
+
+/* Gradient Animation */
+/* Elementor Heading and Trx Title */
+.sc_title .sc_item_title_text .gradient_animation,
+.elementor-widget-heading .elementor-heading-title .gradient_animation {
+  color: var(--theme-color-text_link);
+  background: linear-gradient(45deg, var(--theme-color-text_dark), var(--theme-color-text_link_07));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: gradient_anim 5s ease infinite reverse;
+  padding-bottom: 0.1em;
+}
+
+@-webkit-keyframes gradient_anim {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes gradient_anim {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+/* Footer Socials Modern */
+[class*="scheme_"].footer_wrap .sc_socials.sc_socials_default.modern .socials_wrap .social_item .social_icon,
+.footer_wrap [class*="scheme_"].vc_row .sc_socials.sc_socials_default.modern .socials_wrap .social_item .social_icon {
+  background-color: var(--theme-color-bg_color) !important;
+}
+
+/* CF7 BTN Colors */
+div.wpcf7 .form-style-7 .wpcf7-submit-style .submit-style-in {
+  background-color: var(--theme-color-text_link);
+}
+div.wpcf7 .form-style-7 .wpcf7-submit-style:active .wpcf7-submit + .submit-style-in,
+div.wpcf7 .form-style-7 .wpcf7-submit-style:focus .wpcf7-submit + .submit-style-in,
+div.wpcf7 .form-style-7 .wpcf7-submit-style:hover .wpcf7-submit + .submit-style-in {
+  background-color: var(--theme-color-text_hover);
+}
+
+/* MC4WP */
+[class*="scheme_"].footer_wrap #style-10.mc4wp-form .mc4wp-form-fields input[type="email"],
+.footer_wrap [class*="scheme_"].vc_row #style-10.mc4wp-form .mc4wp-form-fields input[type="email"] {
+  background-color: var(--theme-color-bg_color) !important;
+}
+
+/* 404 */
+.search-no-results .page_content_wrap,
+.error404 .page_content_wrap {
+  background-color: var(--theme-color-bg_color);
+}
+
+.post_item_404 .post_content .all-svg {
+  display: none;
+}
+
+/* Wooc */
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+  background: var(--theme-color-alter_bd_color);
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+  background-color: var(--theme-color-alter_link);
+}
+
+@media (max-width: 1279px) {
+  /* Custom BTN */
+  .round-square.big .elementor-button {
+    width: 151px;
+    height: 151px;
+    line-height: 150px;
+  }
+}
+@media (max-width: 767px) {
+  /* Custom BTN */
+  .round-square.big .elementor-button {
+    width: 101px;
+    height: 101px;
+    line-height: 100px;
+  }
+}
+@media (max-width: 479px) {
+  /* Custom BTN */
+  .round-square.big .elementor-button {
+    width: 81px;
+    height: 81px;
+    line-height: 80px;
+  }
+}
+
+/*# sourceMappingURL=extra-styles.css.map */

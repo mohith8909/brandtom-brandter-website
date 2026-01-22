@@ -1,0 +1,94 @@
+.footer {
+    background-color: #030303;
+    padding: 120px 0 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.ctaSection {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.ctaHeading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: var(--color-white);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.ctaSub {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.mainBtn {
+    font-size: 1.2rem;
+    padding: 20px 60px;
+    border-width: 2px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contactInfo h4 {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contactInfo p {
+    color: var(--color-text-light);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.socials {
+    display: flex;
+    gap: 30px;
+}
+
+.socialLink {
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.socialLink:hover {
+    color: var(--color-white);
+    background: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .ctaHeading {
+        font-size: 3rem;
+    }
+
+    .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

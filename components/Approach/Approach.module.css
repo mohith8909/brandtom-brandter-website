@@ -1,0 +1,38 @@
+.approach {
+    padding: 120px 0;
+    background: var(--dark-gray);
+    text-align: center;
+}
+
+.heading {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.item {
+    max-width: 400px;
+    text-align: left;
+    background: #000;
+    padding: 40px;
+    border: 1px solid #222;
+}
+
+.item h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.item p {
+    color: #ccc;
+    font-size: 1rem;
+}

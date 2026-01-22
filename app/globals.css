@@ -1,0 +1,95 @@
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-accent: #FF3E00;
+  /* Text Link */
+  --color-accent-hover: #E53800;
+  --color-text-dark: #1F242E;
+  --color-text-light: #A5A6AA;
+  --color-bg-dark: #070707;
+  /* Dark theme background */
+
+  /* Fonts */
+  --font-primary: var(--font-dm-sans);
+  --font-display: var(--font-oswald);
+
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, #0693E3 0%, #9B51E0 100%);
+
+  /* Spacing */
+  --container-width: 1290px;
+  --spacing-section: 120px;
+}
+
+/* Resets */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-primary);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Global Noise/Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/quantum-section-texture.png');
+  background-repeat: repeat;
+  background-size: 150px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 40px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}

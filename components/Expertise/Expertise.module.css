@@ -1,0 +1,107 @@
+.expertise {
+    padding: var(--spacing-section) 0;
+    background: #0E0E0E;
+    /* Slightly lighter than pure black for contrast */
+    position: relative;
+    overflow: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.heading {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: var(--color-white);
+    letter-spacing: -0.01em;
+}
+
+.highlight {
+    color: var(--color-accent);
+    position: relative;
+    display: inline-block;
+}
+
+.description {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.resultBox {
+    margin-top: 60px;
+    padding: 50px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.resultBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-accent);
+}
+
+.resultTitle {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.resultText {
+    color: var(--color-text-light);
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    /* Removed grayscale */
+    transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.image:hover {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.02);
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+
+    .resultBox {
+        padding: 30px;
+    }
+}
