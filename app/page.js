@@ -6,13 +6,15 @@ import Approach from '@/components/Approach/Approach';
 import Footer from '@/components/Footer/Footer';
 import PartnerSlider from '@/components/PartnerSlider/PartnerSlider';
 import Expertise from '@/components/Expertise/Expertise';
+import Marquee from '@/components/Marquee/Marquee';
 
 export default function Home() {
   return (
     <main>
       <Header />
       <Hero />
-      <PartnerSlider />
+      {/* <PartnerSlider /> */}
+      <Marquee />
       <Services />
       <About />
       <Expertise />

@@ -2,17 +2,19 @@ import { Instagram, Facebook, Linkedin } from 'lucide-react';
 import styles from './Footer.module.css';
 import Link from 'next/link';
 
-export default function Footer() {
+export default function Footer({ hideCta = false }) {
     return (
         <footer className={styles.footer} id="contact">
             <div className="container">
-                <div className={styles.ctaSection}>
-                    <h2 className={styles.ctaHeading}>Your Brand’s Next Chapter</h2>
-                    <p className={styles.ctaSub}>
-                        Have questions? Get in touch! Every great movement begins with a single spark. Whether you are looking for a core strategy, digital architecture, or a full-scale creative campaign, our team is ready to guide your brand's evolution from ideation to impact.
-                    </p>
-                    <Link href="/contact-us" className={`btn-primary ${styles.mainBtn}`}>Start Your Brand Experiment</Link>
-                </div>
+                {!hideCta && (
+                    <div className={styles.ctaSection}>
+                        <h2 className={styles.ctaHeading}>Your Brand’s Next Chapter</h2>
+                        <p className={styles.ctaSub}>
+                            Have questions? Get in touch! Every great movement begins with a single spark. Whether you are looking for a core strategy, digital architecture, or a full-scale creative campaign, our team is ready to guide your brand's evolution from ideation to impact.
+                        </p>
+                        <Link href="/contact-us" className={`btn-primary ${styles.mainBtn}`}>Start Your Brand Experiment</Link>
+                    </div>
+                )}
 
                 <div className={styles.bottom}>
                     <div className={styles.contactInfo}>

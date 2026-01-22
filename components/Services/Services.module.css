@@ -1,5 +1,5 @@
 .services {
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-black);
     padding: var(--spacing-section) 0;
     position: relative;
 }

@@ -1,5 +1,6 @@
 import styles from './ContactInfo.module.css';
 import FadeIn from '../UI/FadeIn';
+import { MessageCircle } from 'lucide-react';
 
 export default function ContactInfo() {
     return (
@@ -29,6 +30,15 @@ export default function ContactInfo() {
                             </a>
                             <a href="tel:+919585050047" className={styles.link}>
                                 +91 95850 50047
+                            </a>
+                            <a
+                                href="https://wa.me/919585050047?text=Hi%20Brandtom%20%26%20Brandter%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${styles.link} ${styles.whatsappLink}`}
+                                style={{ marginTop: '15px', display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#25D366' }}
+                            >
+                                <MessageCircle size={20} /> Chat on WhatsApp
                             </a>
                         </FadeIn>
                     </div>

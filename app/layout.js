@@ -21,7 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${oswald.variable}`} suppressHydrationWarning={true}>{children}</body>
+      <body className={`${dmSans.variable} ${oswald.variable}`} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }

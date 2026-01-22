@@ -11,7 +11,7 @@ export default function ContactPage() {
             <ContactHero />
             <ContactInfo />
             <ContactMap />
-            <Footer />
+            <Footer hideCta={true} />
         </main>
     );
 }

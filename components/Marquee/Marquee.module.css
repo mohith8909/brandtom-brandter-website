@@ -1,11 +1,11 @@
 .marqueeSection {
     padding: 40px 0;
-    background: var(--accent);
+    background: var(--color-black);
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .track {
@@ -47,12 +47,17 @@
     font-size: 4rem;
     font-weight: 900;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--color-white);
     margin-right: 60px;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
 }
 
 .filled {
+    -webkit-text-stroke: 0;
+}
+
+.dot {
+    color: var(--color-accent);
     -webkit-text-stroke: 0;
 }
 

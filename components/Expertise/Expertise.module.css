@@ -1,6 +1,6 @@
 .expertise {
     padding: var(--spacing-section) 0;
-    background: #0E0E0E;
+    background: var(--color-black);
     /* Slightly lighter than pure black for contrast */
     position: relative;
     overflow: hidden;

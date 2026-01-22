@@ -1,7 +1,7 @@
 .footer {
-    background-color: #030303;
+    background-color: var(--color-white);
     padding: 120px 0 50px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
 }
 
@@ -15,7 +15,7 @@
     font-size: clamp(3rem, 8vw, 6rem);
     text-transform: uppercase;
     margin-bottom: 30px;
-    color: var(--color-white);
+    color: var(--color-black);
     line-height: 0.9;
     letter-spacing: -0.02em;
 }
@@ -23,7 +23,7 @@
 .ctaSub {
     font-family: var(--font-primary);
     font-size: 1.5rem;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     margin-bottom: 50px;
     font-weight: 300;
 }
@@ -32,6 +32,13 @@
     font-size: 1.2rem;
     padding: 20px 60px;
     border-width: 2px;
+    border-color: var(--color-black);
+    color: var(--color-black);
+}
+
+.mainBtn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
 .bottom {
@@ -39,13 +46,13 @@
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 50px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
     gap: 40px;
 }
 
 .contactInfo h4 {
-    color: var(--color-white);
+    color: var(--color-black);
     font-family: var(--font-display);
     font-size: 1.2rem;
     margin-bottom: 15px;
@@ -54,7 +61,7 @@
 }
 
 .contactInfo p {
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     font-family: var(--font-primary);
     font-size: 1rem;
     line-height: 1.6;
@@ -66,14 +73,14 @@
 }
 
 .socialLink {
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .socialLink:hover {

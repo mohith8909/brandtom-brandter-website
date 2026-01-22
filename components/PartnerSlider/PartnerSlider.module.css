@@ -1,9 +1,9 @@
 .partnerSection {
     padding: 100px 0;
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     overflow: hidden;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -50,6 +50,10 @@
     position: relative;
     width: 300px;
     height: 120px;
+}
+
+.imageWrapper img {
+    filter: invert(1);
 }
 
 @keyframes scroll {

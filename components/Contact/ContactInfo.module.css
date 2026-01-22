@@ -1,7 +1,7 @@
 .infoSection {
     padding: 100px 0;
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
 }
 
 .grid {
@@ -31,7 +31,7 @@
 .description {
     font-family: var(--font-primary);
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     line-height: 1.6;
     max-width: 90%;
 }
@@ -49,20 +49,20 @@
     font-size: 1.5rem;
     margin-bottom: 15px;
     text-transform: uppercase;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .infoText {
     font-family: var(--font-primary);
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
 }
 
 .link {
     display: block;
     font-family: var(--font-primary);
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     text-decoration: none;
     margin-bottom: 5px;
     transition: color 0.3s ease;
