@@ -15,9 +15,9 @@ export default function Home() {
       <Hero />
       {/* <PartnerSlider /> */}
       <Marquee />
-      <Services />
       <About />
       <Expertise />
+      <Services />
       <Approach />
       <Footer />
     </main>

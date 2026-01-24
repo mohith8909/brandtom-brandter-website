@@ -38,7 +38,7 @@ export default function Hero() {
                     <FadeIn delay={0.6} tag="span" className={styles.titleLine}>Agency</FadeIn>
                 </h1>
                 <FadeIn delay={0.8} tag="p" className={styles.subtitle}>
-                    Marketing, Development, Design
+                    From thoughts to impact
                 </FadeIn>
             </div>
 
