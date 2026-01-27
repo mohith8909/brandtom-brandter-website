@@ -19,7 +19,7 @@ export default function Footer({ hideCta = false }) {
                 <div className={styles.bottom}>
                     <div className={styles.contactInfo}>
                         <h4>Brandtom & Brandter</h4>
-                        <p>Chennai, Tamilnadu, India</p>
+                        <p>No 2A MP Avenue, Abussali street Saligramam , Chennai -600093.</p>
                         <p>contactus@brandtomandbrandter.com</p>
                         <p>+91 95850 50047</p>
                     </div>
