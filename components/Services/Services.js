@@ -25,7 +25,7 @@ export default function Services() {
     return (
         <section className={styles.services} id="services">
             <div className="container">
-                <FadeIn tag="h2" className={styles.heading}>The Core Pillars</FadeIn>
+                {/* <FadeIn tag="h2" className={styles.heading}>The Core Pillars</FadeIn>
                 <div className={styles.grid}>
                     {services.map((service, index) => (
                         <FadeIn key={index} delay={index * 0.15} className={styles.card}>
@@ -40,6 +40,25 @@ export default function Services() {
                             <Link href="/services" className={styles.cardLink}>Learn More</Link>
                         </FadeIn>
                     ))}
+                </div> */}
+
+                <div className={styles.ctaSection}>
+                    <Image
+                        src="/assets/new/services_cta_background.png"
+                        alt="Background"
+                        fill
+                        className={styles.ctaBackground}
+                        quality={90}
+                    />
+                    <FadeIn>
+                        <h2 className={styles.ctaHeading}>Transforming Ideas into Impact</h2>
+                        <p className={styles.ctaText}>
+                            Explore our comprehensive suite of services designed to elevate your brand.
+                        </p>
+                        <Link href="/services" className={styles.ctaButton}>
+                            View Our Services
+                        </Link>
+                    </FadeIn>
                 </div>
             </div>
         </section>
