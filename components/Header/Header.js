@@ -37,14 +37,16 @@ export default function Header() {
         <header className={`${styles.header} ${!isVisible ? styles.headerHidden : ''}`}>
             <div className={styles.leftGroup}>
                 <div className={styles.logoContainer}>
-                    <Image
-                        src="/assets/cropped-Brandtom.-Logo.svgtransparent.png"
-                        alt="Brandtom & Brandter"
-                        width={280}
-                        height={85}
-                        className={styles.logo}
-                        priority
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/assets/cropped-Brandtom.-Logo.svgtransparent.png"
+                            alt="Brandtom & Brandter"
+                            width={280}
+                            height={85}
+                            className={styles.logo}
+                            priority
+                        />
+                    </Link>
                 </div>
 
                 <nav className={styles.nav}>

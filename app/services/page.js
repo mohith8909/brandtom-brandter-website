@@ -53,6 +53,12 @@ export default function ServicesPage() {
             title: "Brand Communication",
             desc: "Our brand communication service refines your brand’s voice, narration, and visual language to create meaningful connections with your target audience. We translate your values into simple stories that inspire trust and long-term loyalty.",
             image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+            id: "08.",
+            title: "Influencer Marketing",
+            desc: "Influencer marketing leverages trusted creators to authentically promote brands, boosting reach, credibility, and consumer engagement.",
+            image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?fm=jpg&q=60&w=800&auto=format&fit=crop"
         }
     ];
 
