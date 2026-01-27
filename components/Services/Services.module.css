@@ -203,3 +203,28 @@
     opacity: 1;
     transform: translateX(0);
 }
+
+@media (max-width: 768px) {
+    .ctaSection {
+        padding: 60px 20px;
+        border-radius: 16px;
+    }
+
+    .ctaHeading {
+        font-size: 2rem;
+        word-wrap: break-word;
+        /* Ensure long words break */
+    }
+
+    .ctaText {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .ctaButton {
+        padding: 15px 30px;
+        font-size: 0.9rem;
+        width: 100%;
+        /* Full width on mobile for easier tapping */
+    }
+}
