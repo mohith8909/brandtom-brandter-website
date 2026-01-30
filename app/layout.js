@@ -14,8 +14,8 @@ const oswald = Oswald({
 });
 
 export const metadata = {
-  title: "Brandtom & Brandter | Vision to Impact",
-  description: "Moving your vision from a thought to an impact. A full-service marketing and branding agency.",
+  title: "Brandtom & Brandter | Marketing Solutions Agency",
+  description: "Brandtom & Brandter specialises in full-spectrum marketing solutions, turning ideas into impact from concept to execution. We blend strategy, creativity, and psychology to build brands that connect, convert, and endure.",
 };
 
 export default function RootLayout({ children }) {
