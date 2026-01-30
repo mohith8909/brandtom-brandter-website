@@ -20,7 +20,7 @@ export default function ContactInfo() {
                     <div className={styles.rightCol}>
                         <FadeIn className={styles.infoBlock} delay={0.5}>
                             <h4 className={styles.infoTitle}>Address</h4>
-                            <p className={styles.infoText}>No 2A MP Avenue, Abussali street Saligramam , Chennai -600093.</p>
+                            <p className={styles.infoText}>2 A, M P Avenue, Abbusali St, Saligramam, Chennai, Tamil Nadu 600093</p>
                         </FadeIn>
 
                         <FadeIn className={styles.infoBlock} delay={0.6}>
