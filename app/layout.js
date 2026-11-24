@@ -1,13 +1,18 @@
-import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/Motion/SmoothScroll";
 import Cursor from "@/components/Motion/Cursor";
 import Preloader from "@/components/Motion/Preloader";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '700']
+// DM Sans is bundled with the site (SIL Open Font License, see app/fonts) rather than
+// fetched from Google at build time, so builds are identical locally and on Vercel.
+const dmSans = localFont({
+  src: "./fonts/DMSans-latin-variable.woff2",
+  weight: "100 1000",
+  style: "normal",
+  display: "swap",
+  variable: "--font-dm-sans",
+  fallback: ["system-ui", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
 });
 
 
