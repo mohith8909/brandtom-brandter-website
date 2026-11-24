@@ -2,17 +2,29 @@
   /* Colors */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-accent: #FF3E00;
+  --color-accent: #FF3325;
+
+  /* Logo palette */
+  --c-coral: #FF3325;
+  --c-blue: #00A3EA;
+  --c-lime: #8FD73A;
+  --c-magenta: #AE2A73;
+  --c-plum: #792784;
+  --c-royal: #3169C9;
+  --c-ink: #0A0A0F;
+  --c-paper: #F4F1EC;
+  /* The order the colours flow around the logo head */
+  --gradient-spectrum: linear-gradient(90deg, #FF3325 0%, #AE2A73 30%, #792784 50%, #00A3EA 72%, #8FD73A 100%);
   /* Text Link */
-  --color-accent-hover: #E53800;
+  --color-accent-hover: #E62A1D;
   --color-text-dark: #1F242E;
   --color-text-light: #A5A6AA;
   --color-bg-dark: #070707;
   /* Dark theme background */
 
   /* Fonts */
-  --font-primary: var(--font-dm-sans);
-  --font-display: var(--font-oswald);
+  --font-primary: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-dm-sans), system-ui, sans-serif;
 
   /* Gradients */
   --gradient-main: linear-gradient(135deg, #0693E3 0%, #9B51E0 100%);
@@ -49,7 +61,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: var(--font-primary);
   background-color: var(--color-black);
   color: var(--color-white);
@@ -109,4 +121,144 @@ body::before {
   background-color: var(--color-white);
   color: var(--color-black);
   border-color: var(--color-white);
+}
+
+/* =========================================================
+   Immersive motion layer
+   ========================================================= */
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Smooth scroll (Lenis) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom cursor replaces the system one on mouse devices */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* Animated film grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 9998;
+  animation: grain 1s steps(6) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-5%, 3%); }
+  40% { transform: translate(4%, -6%); }
+  60% { transform: translate(-3%, 7%); }
+  80% { transform: translate(6%, -2%); }
+}
+
+/* Word-by-word text reveal */
+.sr-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.sr-word {
+  display: inline-block;
+  transform: translateY(110%) rotate(5deg);
+  transform-origin: left top;
+  will-change: transform;
+}
+
+.sr-word.sr-fill {
+  transform: none;
+  opacity: 0.15;
+}
+
+/* Image wipe reveal */
+.img-reveal {
+  clip-path: inset(100% 0% 0% 0%);
+  overflow: hidden;
+}
+
+.img-reveal-inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.img-reveal-flow {
+  position: relative;
+  inset: auto;
+}
+
+/* Page transition curtain */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+.page-curtain-panel {
+  position: absolute;
+  inset: 0;
+  background: #050505;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.page-curtain-accent {
+  background: var(--color-accent);
+}
+
+/* Rolling text on hover (nav links, buttons) */
+.roll {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 1.25em;
+  line-height: 1.25em;
+  vertical-align: middle;
+}
+
+.roll > span {
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover .roll > span,
+button:hover .roll > span {
+  transform: translateY(-100%);
+}
+
+/* Everyone sees content when motion is off or JS hasn't run */
+@media (prefers-reduced-motion: reduce) {
+  .sr-word { transform: none !important; opacity: 1 !important; }
+  .img-reveal { clip-path: none !important; }
+  body::after { animation: none; }
 }

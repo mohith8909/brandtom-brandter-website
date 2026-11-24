@@ -10,7 +10,7 @@ export default function ContactInfo() {
                     <div className={styles.leftCol}>
                         <FadeIn tag="span" className={styles.subHeading} delay={0.2}>Get in touch</FadeIn>
                         <FadeIn tag="h2" className={styles.tagline} delay={0.3}>
-                            LET'S TRANSFORM YOUR THOUGHTS INTO IMPACT.
+                            Let’s transform your thoughts into impact.
                         </FadeIn>
                         <FadeIn tag="p" className={styles.description} delay={0.4}>
                             Every great movement begins with a single spark. Whether you are looking for a core strategy, digital architecture, or a full-scale creative campaign, our team is ready to guide your brand's evolution from ideation to impact.

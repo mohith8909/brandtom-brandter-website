@@ -1,52 +1,35 @@
 .footer {
-    background-color: var(--color-white);
-    padding: 120px 0 50px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: var(--c-paper);
     position: relative;
+    overflow: hidden;
 }
 
-.ctaSection {
-    text-align: center;
-    margin-bottom: 100px;
+.bottomWrap {
+    padding-top: 70px;
+    padding-bottom: 20px;
 }
 
-.ctaHeading {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 6rem);
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    color: var(--color-black);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-}
-
-.ctaSub {
+/* Giant faded wordmark signing off the page */
+.wordmark {
     font-family: var(--font-primary);
-    font-size: 1.5rem;
-    color: var(--color-text-dark);
-    margin-bottom: 50px;
-    font-weight: 300;
-}
-
-.mainBtn {
-    font-size: 1.2rem;
-    padding: 20px 60px;
-    border-width: 2px;
-    border-color: var(--color-black);
-    color: var(--color-black);
-}
-
-.mainBtn:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    font-weight: 700;
+    font-size: 8.4vw;
+    letter-spacing: -0.06em;
+    line-height: 0.8;
+    white-space: nowrap;
+    text-align: center;
+    color: rgba(10, 10, 15, 0.1);
+    margin-top: 60px;
+    margin-bottom: -1.2vw;
+    user-select: none;
+    pointer-events: none;
 }
 
 .bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-top: 50px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 0;
     flex-wrap: wrap;
     gap: 40px;
 }
@@ -54,10 +37,11 @@
 .contactInfo h4 {
     color: var(--color-black);
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.16em;
 }
 
 .contactInfo p {
@@ -65,6 +49,37 @@
     font-family: var(--font-primary);
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.contactLink {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+    color: var(--color-accent);
+}
+
+.recognition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.recognitionLabel {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-dark);
+    opacity: 0.7;
+}
+
+.recognitionLogo {
+    width: 200px;
+    height: auto;
 }
 
 .socials {
@@ -90,12 +105,16 @@
 }
 
 @media (max-width: 768px) {
-    .ctaHeading {
-        font-size: 3rem;
-    }
-
     .bottom {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .recognition {
+        align-items: flex-start;
+    }
+
+    .recognitionLogo {
+        width: 170px;
     }
 }

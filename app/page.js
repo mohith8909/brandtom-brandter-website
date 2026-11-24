@@ -1,24 +1,22 @@
 import Header from '@/components/Header/Header';
 import Hero from '@/components/Hero/Hero';
-import Services from '@/components/Services/Services';
-import About from '@/components/About/About';
-import Approach from '@/components/Approach/Approach';
+import ServicesList from '@/components/ServicesList/ServicesList';
+import Manifesto from '@/components/Manifesto/Manifesto';
+import AtomMatter from '@/components/AtomMatter/AtomMatter';
+import Process from '@/components/Process/Process';
+import WhyUs from '@/components/WhyUs/WhyUs';
 import Footer from '@/components/Footer/Footer';
-import PartnerSlider from '@/components/PartnerSlider/PartnerSlider';
-import Expertise from '@/components/Expertise/Expertise';
-import Marquee from '@/components/Marquee/Marquee';
 
 export default function Home() {
   return (
     <main>
       <Header />
       <Hero />
-      {/* <PartnerSlider /> */}
-      <Marquee />
-      <About />
-      <Expertise />
-      <Services />
-      <Approach />
+      <ServicesList />
+      <Manifesto />
+      <AtomMatter />
+      <Process />
+      <WhyUs />
       <Footer />
     </main>
   );

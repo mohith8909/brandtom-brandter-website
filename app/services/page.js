@@ -3,7 +3,8 @@ import Footer from '@/components/Footer/Footer';
 import styles from './page.module.css';
 import FadeIn from '@/components/UI/FadeIn';
 
-import Image from 'next/image';
+import SplitReveal from '@/components/Motion/SplitReveal';
+import ServicesGallery from '@/components/ServicesGallery/ServicesGallery';
 
 export const metadata = {
     title: "Our Services | Brandtom & Brandter",
@@ -68,45 +69,19 @@ export default function ServicesPage() {
 
             <section className={styles.titleSection}>
                 <div className="container">
-                    <FadeIn tag="h1" className={styles.heading}>Our Services</FadeIn>
+                    <SplitReveal tag="h1" className={styles.heading} onLoad>Our Services</SplitReveal>
                     <FadeIn tag="p" className={styles.subHeading} delay={0.2}>
                         End-to-end marketing solutions tailored to transform your vision into impact.
                     </FadeIn>
                 </div>
             </section>
 
-            <section className={styles.servicesSection}>
-                <div className="container">
-                    <div className={styles.servicesGrid}>
-                        {services.map((service, index) => (
-                            <FadeIn key={index} className={styles.serviceCard} delay={index * 0.1}>
-                                <div className={styles.cardImageWrapper}>
-                                    <Image
-                                        src={service.image}
-                                        alt={service.title}
-                                        fill
-                                        className={styles.cardBg}
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                    />
-                                    <div className={styles.cardOverlay}></div>
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <span className={styles.cardNumber}>{service.id}</span>
-                                    <h3 className={styles.cardTitle}>{service.title}</h3>
-                                    <p className={styles.cardDesc}>{service.desc}</p>
-                                </div>
-                            </FadeIn>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <ServicesGallery services={services} />
 
             <section className={styles.partnershipSection}>
                 <div className="container">
-                    <FadeIn delay={0.2}>
-                        <span className={styles.label}>OUR PARTNERSHIP</span>
-                        <h2 className={styles.partnershipHeading}>The collective driving your growth</h2>
-                    </FadeIn>
+                    <span className={styles.label}>OUR PARTNERSHIP</span>
+                    <SplitReveal tag="h2" mode="fill" className={styles.partnershipHeading}>The collective driving your growth</SplitReveal>
                 </div>
             </section>
 
@@ -114,7 +89,9 @@ export default function ServicesPage() {
                 <div className="container">
                     <FadeIn delay={0.2}>
                         <span className={styles.label}>how we help</span>
-                        <h2 className={styles.sectionHeading}>Empowering Brands Through Strategic Evolution</h2>
+                    </FadeIn>
+                    <SplitReveal tag="h2" className={styles.sectionHeading}>Empowering Brands Through Strategic Evolution</SplitReveal>
+                    <FadeIn>
                         <div className={styles.descriptionBlock}>
                             <p>We are a full-spectrum marketing collective that operates at the intersection of psychology and precision. Our mission is to move your most ambitious ideas from a microscopic spark into a substantial market reality.</p>
                             <p>We don’t just deliver services; we build enduring connections that leave a lasting mark on culture. By blending creative intuition with scientific clarity, we ensure every message is built to resonate deeply and perform powerfully.</p>

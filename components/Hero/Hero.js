@@ -1,50 +1,100 @@
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import styles from './Hero.module.css';
-import Image from 'next/image';
-import FadeIn from '../UI/FadeIn';
+import KineticWords from './KineticWords';
+import Magnetic from '../Motion/Magnetic';
+import { gsap, useGSAP, prefersReducedMotion, whenIntroDone } from '../Motion/gsap';
+
+const LINES = [
+    { text: 'From thought' },
+    { text: 'to impact.', spectrum: true },
+];
+
+function ChennaiClock() {
+    const [time, setTime] = useState('');
+    useEffect(() => {
+        const fmt = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' });
+        const tick = () => setTime(fmt.format(new Date()));
+        tick();
+        const id = setInterval(tick, 15000);
+        return () => clearInterval(id);
+    }, []);
+    return <span suppressHydrationWarning>Chennai {time || '--:--'} IST</span>;
+}
 
 export default function Hero() {
+    const root = useRef(null);
+
+    useGSAP(() => {
+        const q = gsap.utils.selector(root);
+        const lines = q(`.${styles.lineInner}`);
+        const fades = q(`.${styles.fadeUp}`);
+
+        if (prefersReducedMotion()) {
+            gsap.set(lines, { y: 0, yPercent: 0 });
+            return;
+        }
+
+        gsap.set(fades, { autoAlpha: 0, y: 24 });
+        const cancel = whenIntroDone(() => {
+            gsap.timeline()
+                .to(lines, { y: 0, yPercent: 0, duration: 1.4, stagger: 0.12, ease: 'expo.out' })
+                .to(fades, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.08, ease: 'power3.out' }, 0.35);
+        });
+
+        // Headline lifts and fades as the hero scrolls away
+        gsap.to(q(`.${styles.content}`), {
+            yPercent: -25, autoAlpha: 0, ease: 'none',
+            scrollTrigger: { trigger: root.current, start: 'top top', end: '60% top', scrub: true },
+        });
+
+        return cancel;
+    }, { scope: root });
+
     return (
-        <section className={styles.hero} id="home">
-            {/* Collage Images */}
-            {/* Top Left - Creative Director */}
-            <div className={`${styles.collageImage} ${styles.imgTopLeft}`}>
-                <Image src="/assets/new/hero_creative_director_1769107562116.png" alt="Creative Strategy" fill style={{ objectFit: 'cover' }} />
-            </div>
+        <section ref={root} className={styles.hero} id="home">
+            <div className={styles.glow} aria-hidden="true" />
 
-            {/* Top Right - Modern Office */}
-            <div className={`${styles.collageImage} ${styles.imgTopRight}`}>
-                <Image src="/assets/new/hero_modern_office_1769107598640.png" alt="Modern Agency" fill style={{ objectFit: 'cover' }} />
-            </div>
-
-            {/* Bottom Left - Designer Sketch */}
-            <div className={`${styles.collageImage} ${styles.imgBottomLeft}`}>
-                <Image src="/assets/new/hero_designer_sketch_1769107615839.png" alt="Creative Process" fill style={{ objectFit: 'cover' }} />
-            </div>
-
-            {/* Bottom Right - Digital Tech */}
-            <div className={`${styles.collageImage} ${styles.imgBottomRight}`}>
-                <Image src="/assets/new/hero_digital_tech_1769107581068.png" alt="Digital Innovation" fill style={{ objectFit: 'cover' }} />
-            </div>
-
-            {/* Extra Side Image - Abstract Art */}
-            <div className={`${styles.collageImage} ${styles.imgExtra}`}>
-                <Image src="/assets/new/hero_abstract_art_1769107632040.png" alt="Artistic Vision" fill style={{ objectFit: 'cover' }} />
-            </div>
+            {/* The physical word pile sits behind the text and fills the hero */}
+            <KineticWords scrollTarget={root} />
 
             <div className={styles.content}>
+                <div className={`${styles.chips} ${styles.fadeUp}`}>
+                    <span className={styles.chip}><span className={styles.chipHex} />DPIIT Recognised Startup</span>
+                    <span className={styles.chip}><ChennaiClock /></span>
+                    <span className={`${styles.chip} ${styles.chipLive}`}><span className={styles.liveDot} />Open for projects</span>
+                </div>
+
                 <h1 className={styles.title}>
-                    <FadeIn delay={0.2} tag="span" className={styles.titleLine}>Marketing</FadeIn>
-                    <FadeIn delay={0.4} tag="span" className={styles.titleLine}>Solutions</FadeIn>
-                    <FadeIn delay={0.6} tag="span" className={styles.titleLine}>Agency</FadeIn>
+                    {LINES.map((l) => (
+                        <span key={l.text} className={styles.titleLine}>
+                            <span className={`${styles.lineInner} ${l.spectrum ? styles.spectrum : ''}`}>{l.text}</span>
+                        </span>
+                    ))}
                 </h1>
-                <FadeIn delay={0.8} tag="p" className={styles.subtitle}>
-                    From thoughts to impact
-                </FadeIn>
+
+                <div className={styles.row}>
+                    <p className={`${styles.subtitle} ${styles.fadeUp}`}>
+                        A full-spectrum marketing agency from Chennai. Strategy, stories and campaigns,
+                        built to collide with culture and leave a mark.
+                    </p>
+
+                    <div className={`${styles.ctas} ${styles.fadeUp}`}>
+                        <Magnetic strength={0.3}>
+                            <Link href="/contact-us" className={styles.ctaPrimary}>
+                                <span className="roll"><span>Start a project</span><span aria-hidden="true">Start a project</span></span>
+                                <span className={styles.ctaArrow} aria-hidden="true">→</span>
+                            </Link>
+                        </Magnetic>
+                        <Link href="/services" className={styles.ctaGhost}>
+                            <span className="roll"><span>Explore services</span><span aria-hidden="true">Explore services</span></span>
+                        </Link>
+                        <span className={styles.hint} aria-hidden="true">↓ Grab a word and throw it</span>
+                    </div>
+                </div>
             </div>
 
-            <div className={styles.scrollDown}>
-                <div className={styles.arrow}></div>
-            </div>
         </section>
     );
 }

@@ -74,17 +74,16 @@
 }
 
 .ctaButton {
-    background: #FF3E00;
+    background: var(--color-accent);
     color: var(--color-white);
-    padding: 12px 30px;
+    padding: 12px 26px;
     font-family: var(--font-display);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase;
     border: none;
-    border-radius: 0;
+    border-radius: 100px;
     transition: all 0.3s ease;
-    letter-spacing: 1px;
+    letter-spacing: -0.01em;
 }
 
 .mobilePhone {
@@ -92,7 +91,7 @@
 }
 
 .ctaButton:hover {
-    background: #FF5722;
+    background: var(--color-accent-hover);
     transform: translateY(-2px);
 }
 
@@ -159,8 +158,9 @@
 .mobileLink {
     color: var(--color-white);
     font-family: var(--font-display);
-    font-size: 2rem;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.4rem;
+    letter-spacing: -0.04em;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -186,8 +186,9 @@
         display: none;
     }
 
+    .ctaMagnet,
     .ctaButton {
-        display: none;
+        display: none !important;
     }
 
     .rightGroup {
@@ -200,7 +201,7 @@
         justify-content: center;
         width: 45px;
         height: 45px;
-        background-color: #FF3E00;
+        background-color: var(--color-accent);
         border-radius: 50%;
         margin-right: 0;
         transition: transform 0.2s ease, background-color 0.2s ease;

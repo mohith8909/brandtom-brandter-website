@@ -1,0 +1,78 @@
+/* React-owned wrapper so GSAP's pin spacer never sits between React and its siblings */
+.pinWrap {
+    position: relative;
+}
+
+.manifesto {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--c-ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 6vw;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.label {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 36px;
+}
+
+.sentence {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 5.6vw, 6.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    color: var(--color-white);
+    max-width: 1400px;
+}
+
+.w {
+    opacity: 0.12;
+}
+
+.key {
+    white-space: nowrap;
+}
+
+.keyWord {
+    color: var(--k);
+}
+
+/* Hexagon photo that pops in beside each key word */
+.chip {
+    position: relative;
+    display: inline-block;
+    width: 0.95em;
+    height: 1.05em;
+    margin-left: 0.18em;
+    vertical-align: -0.12em;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: var(--k);
+    transform: scale(0) rotate(-30deg);
+    overflow: hidden;
+}
+
+.chip img {
+    object-fit: cover;
+    mix-blend-mode: luminosity;
+    opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .w {
+        opacity: 1;
+    }
+
+    .chip {
+        transform: none;
+    }
+}

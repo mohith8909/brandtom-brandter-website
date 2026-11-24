@@ -22,10 +22,11 @@
 
 .tagline {
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
     margin-bottom: 30px;
-    text-transform: uppercase;
 }
 
 .description {
@@ -46,7 +47,9 @@
 
 .infoTitle {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
     margin-bottom: 15px;
     text-transform: uppercase;
     color: var(--color-black);

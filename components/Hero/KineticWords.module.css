@@ -1,0 +1,104 @@
+/* First paint / reduced motion: a tidy static pile along the bottom */
+.stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 6vw 90px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+
+/* Physics running: every body is positioned by transform from the top-left */
+.live {
+    display: block;
+    padding: 0;
+}
+
+.live .pill,
+.live .hex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.15vw, 2.25rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    padding: 0.62em 1.15em 0.66em;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: filter 0.25s ease, box-shadow 0.25s ease;
+    -webkit-user-drag: none;
+}
+
+.live .pill {
+    cursor: grab;
+}
+
+.dragging,
+.dragging .pill {
+    cursor: grabbing;
+}
+
+.pill:hover {
+    filter: brightness(1.08) saturate(1.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.pill:focus-visible {
+    outline: 3px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+/* Colour by meaning, with readable text on every fill */
+.coral { background: var(--c-coral); color: var(--c-ink); }
+.blue { background: var(--c-blue); color: var(--c-ink); }
+.lime { background: var(--c-lime); color: var(--c-ink); }
+.magenta { background: var(--c-magenta); color: #fff; }
+.plum { background: var(--c-plum); color: #fff; }
+.royal { background: var(--c-royal); color: #fff; }
+.white { background: var(--c-paper); color: var(--c-ink); }
+.outline {
+    background: rgba(10, 10, 15, 0.6);
+    color: #fff;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.75), 0 10px 30px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+
+/* Hexagon tokens (pointy-top, matching the physics body) */
+.hex {
+    --s: clamp(46px, 5.2vw, 84px);
+    display: inline-block;
+    height: var(--s);
+    width: calc(var(--s) * 0.866);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.hex.coral { background: linear-gradient(160deg, #ff6a5e, var(--c-coral)); }
+.hex.blue { background: linear-gradient(160deg, #4cc4f5, var(--c-blue)); }
+.hex.lime { background: linear-gradient(160deg, #b5ea79, var(--c-lime)); }
+.hex.magenta { background: linear-gradient(160deg, #d0559b, var(--c-magenta)); }
+
+/* Fewer words on small screens so the pile stays below the headline */
+@media (max-width: 900px) {
+    .wideOnly {
+        display: none;
+    }
+
+    .stage {
+        padding-bottom: 70px;
+        gap: 8px;
+    }
+}
