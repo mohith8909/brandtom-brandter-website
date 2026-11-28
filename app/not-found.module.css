@@ -1,0 +1,111 @@
+.main {
+    background: var(--c-ink);
+}
+
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 160px 6vw 100px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* A few logo-coloured hexagons drifting apart: an idea that hasn't come together */
+.hexes span {
+    position: absolute;
+    z-index: -1;
+    width: 90px;
+    height: 104px;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    opacity: 0.55;
+    animation: drift 9s ease-in-out infinite alternate;
+}
+
+.hexes span:nth-child(1) { background: var(--c-coral); right: 12%; top: 22%; }
+.hexes span:nth-child(2) { background: var(--c-magenta); right: 24%; top: 48%; width: 60px; height: 69px; animation-delay: -2s; }
+.hexes span:nth-child(3) { background: var(--c-blue); right: 8%; top: 62%; width: 120px; height: 138px; animation-delay: -4s; }
+.hexes span:nth-child(4) { background: var(--c-lime); right: 30%; top: 18%; width: 44px; height: 51px; animation-delay: -6s; }
+.hexes span:nth-child(5) { background: var(--c-plum); right: 18%; top: 78%; width: 56px; height: 64px; animation-delay: -8s; }
+
+@keyframes drift {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(-30px, 24px) rotate(18deg); }
+}
+
+.code {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(5rem, 16vw, 14rem);
+    letter-spacing: -0.07em;
+    line-height: 0.85;
+    background: var(--gradient-spectrum);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(2rem, 4.4vw, 4rem);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    color: var(--color-white);
+    max-width: 760px;
+    margin-bottom: 18px;
+}
+
+.text {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 520px;
+    margin-bottom: 36px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.primary,
+.ghost {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 26px;
+    border-radius: 100px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.primary {
+    background: var(--c-coral);
+    color: var(--color-white);
+}
+
+.primary:hover {
+    background: var(--color-accent-hover);
+}
+
+.ghost {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--color-white);
+}
+
+.ghost:hover {
+    border-color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hexes span {
+        animation: none;
+    }
+}

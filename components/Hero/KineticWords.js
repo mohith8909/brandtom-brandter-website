@@ -17,24 +17,30 @@ import { prefersReducedMotion, whenIntroDone } from '../Motion/gsap';
  */
 
 const WORDS = [
-    { label: 'Campaigns', tone: 'coral' },
-    { label: 'Strategy', tone: 'blue' },
-    { label: 'Storytelling', tone: 'magenta' },
-    { label: 'Ad Films', tone: 'outline' },
-    { label: 'Digital', tone: 'royal' },
-    { label: 'Design', tone: 'plum' },
-    { label: 'Influence', tone: 'lime' },
-    { label: 'Ideation', tone: 'outline' },
-    { label: 'Copywriting', tone: 'white', wide: true },
-    { label: 'Social', tone: 'coral', wide: true },
-    { label: 'Branding', tone: 'blue', wide: true },
-    { label: 'Content', tone: 'magenta', wide: true },
+    { label: 'Campaigns', slug: 'creative-campaigns', tone: 'coral' },
+    { label: 'Strategy', slug: 'brand-strategy', tone: 'blue' },
+    { label: 'Storytelling', slug: 'brand-communication', tone: 'magenta' },
+    { label: 'Ad Films', slug: 'content-production', tone: 'outline' },
+    { label: 'Digital', slug: 'digital-marketing', tone: 'royal' },
+    { label: 'Design', slug: 'graphic-design', tone: 'plum' },
+    { label: 'Influence', slug: 'influencer-marketing', tone: 'lime' },
+    { label: 'Ideation', slug: 'brand-strategy', tone: 'outline' },
+    { label: 'Copywriting', slug: 'content-copywriting', tone: 'white', wide: true },
+    { label: 'Social', slug: 'digital-marketing', tone: 'coral', wide: true },
+    { label: 'Branding', slug: 'brand-communication', tone: 'blue', wide: true },
+    { label: 'Content', slug: 'content-copywriting', tone: 'magenta', wide: true },
 ];
 const TOKENS = ['coral', 'blue', 'lime', 'magenta'];
 
 export default function KineticWords({ scrollTarget, className = '' }) {
     const stage = useRef(null);
     const router = useRouter();
+    // A real click on a word goes through the hex page transition (components/Motion/PageTransition.js);
+    // the transition itself ignores clicks inside this stage so a throw never navigates
+    const navigate = (href, x, y) => {
+        if (window.__bbTransition) window.dispatchEvent(new CustomEvent('bb:navigate', { detail: { href, x, y } }));
+        else router.push(href);
+    };
 
     useEffect(() => {
         const el = stage.current;
@@ -125,7 +131,7 @@ export default function KineticWords({ scrollTarget, className = '' }) {
             const link = e.target.closest('a');
             if (!link) return;
             e.preventDefault();
-            if (!dragMoved && downAt && performance.now() - downAt.t < 400) router.push(link.getAttribute('href'));
+            if (!dragMoved && downAt && performance.now() - downAt.t < 400) navigate(link.getAttribute('href'), e.clientX, e.clientY);
             downAt = null;
         };
         el.addEventListener('pointerdown', onDown);
@@ -234,13 +240,16 @@ export default function KineticWords({ scrollTarget, className = '' }) {
     }, [scrollTarget, router]);
 
     return (
-        <div ref={stage} className={`${styles.stage} ${className}`}>
+        // Decorative and repetitive (each word opens its service, like the services list below),
+        // so it is hidden from screen readers and the tab order; mouse and touch still work.
+        <div ref={stage} className={`${styles.stage} ${className}`} aria-hidden="true" data-transition="manual">
             {WORDS.map((w) => (
                 <a
                     key={w.label}
-                    href="/services"
+                    href={`/services#${w.slug}`}
                     data-body="pill"
                     draggable={false}
+                    tabIndex={-1}
                     className={`${styles.pill} ${styles[w.tone]} ${w.wide ? styles.wideOnly : ''}`}
                 >
                     {w.label}

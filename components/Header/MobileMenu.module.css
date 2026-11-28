@@ -1,0 +1,270 @@
+/* Full-screen panel under the header bar (the bar stays on top: logo, Let's Talk, close) */
+/* Explicit size, not inset: 0. The header has a backdrop blur, which makes it the frame
+   for fixed children, so inset: 0 would only cover the header bar. */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1001;
+    background: #08080c;
+    clip-path: circle(0% at calc(100% - 40px) 55px);
+    visibility: hidden;
+    transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0.7s;
+}
+
+/* Opens as a circle growing from the menu button */
+.open {
+    clip-path: circle(150% at calc(100% - 40px) 55px);
+    visibility: visible;
+    transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s;
+}
+
+.glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(60vw 60vw at 100% 0%, rgba(255, 51, 37, 0.14), transparent 70%),
+        radial-gradient(70vw 70vw at 0% 100%, rgba(0, 163, 234, 0.12), transparent 70%);
+}
+
+.scroll {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 120px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    max-width: 720px;
+}
+
+/* Everything rises in, one block after another */
+.pages li,
+.servicesBlock,
+.actions,
+.socials {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.open .pages li,
+.open .servicesBlock,
+.open .actions,
+.open .socials {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--i) * 55ms + 250ms);
+}
+
+/* Page links */
+.pages {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 6px 0;
+    color: var(--color-white);
+}
+
+.num {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+    font-variant-numeric: tabular-nums;
+    width: 22px;
+}
+
+.label {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 9vw, 3.6rem);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page:hover .label,
+.page:focus-visible .label {
+    color: var(--c-coral);
+    transform: translateX(6px);
+}
+
+/* Current page: spectrum text and a hexagon in place of the number */
+.active .label {
+    background: var(--gradient-spectrum);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.active .num {
+    color: transparent;
+    background: var(--gradient-spectrum);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    width: 12px;
+    height: 13px;
+    margin: 0 5px;
+    align-self: center;
+}
+
+/* Services */
+.kicker {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 14px;
+}
+
+.services {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 16px;
+}
+
+.service {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s ease;
+}
+
+.service:hover,
+.service:focus-visible {
+    color: var(--color-white);
+}
+
+.hex {
+    flex: none;
+    width: 10px;
+    height: 11px;
+    background: var(--c);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+/* Start a project, and one-tap contact */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    border-radius: 100px;
+    background: var(--c-coral);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+    background: var(--color-accent-hover);
+}
+
+.quick {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.quickLink {
+    display: flex;
+    justify-content: center;
+    padding: 13px 0;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.quickLink:hover,
+.quickLink:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Socials */
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 22px;
+}
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-white);
+    transition: background 0.2s ease;
+}
+
+.social:hover,
+.social:focus-visible {
+    background: var(--c-coral);
+}
+
+.city {
+    margin-left: auto;
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 380px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu,
+    .open,
+    .pages li,
+    .servicesBlock,
+    .actions,
+    .socials {
+        transition: none !important;
+        transform: none !important;
+    }
+}

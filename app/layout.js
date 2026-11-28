@@ -3,6 +3,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/Motion/SmoothScroll";
 import Cursor from "@/components/Motion/Cursor";
 import Preloader from "@/components/Motion/Preloader";
+import PageTransition from "@/components/Motion/PageTransition";
+import WhatsAppButton from "@/components/UI/WhatsAppButton";
 
 // DM Sans is bundled with the site (SIL Open Font License, see app/fonts) rather than
 // fetched from Google at build time, so builds are identical locally and on Vercel.
@@ -24,14 +26,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+      <head>
+        {/* Before first paint: hide the intro overlay for visitors with reduced motion switched on */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-skip')}catch(e){}`,
+          }}
+        />
+      </head>
       <body suppressHydrationWarning={true}>
         <noscript>
-          <style>{`.sr-word{transform:none!important;opacity:1!important}.img-reveal{clip-path:none!important}`}</style>
+          <style>{`.sr-word{transform:none!important;opacity:1!important}.img-reveal{clip-path:none!important}[data-body]{visibility:visible!important}[data-preloader]{display:none!important}`}</style>
         </noscript>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Preloader />
         <SmoothScroll />
         <Cursor />
         {children}
+        <WhatsAppButton />
+        <PageTransition />
       </body>
     </html>
   );

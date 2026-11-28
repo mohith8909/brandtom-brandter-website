@@ -4,19 +4,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ServicesList.module.css';
 import SplitReveal from '../Motion/SplitReveal';
+import { serviceHref } from '../Motion/anchors';
 import { gsap, useGSAP, prefersReducedMotion } from '../Motion/gsap';
 
 // Each service owns a logo colour by meaning:
 // coral = campaigns/promotion, blue = strategy/digital, magenta & plum = content/design, lime = growth
 const SERVICES = [
-    { name: 'Creative Campaigns', tag: 'Ideas that get noticed', color: 'var(--c-coral)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Brand Strategy & Ideation', tag: 'Positioning with purpose', color: 'var(--c-blue)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Content & Copywriting', tag: 'A voice people remember', color: 'var(--c-magenta)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Brand Communication', tag: 'Values into stories', color: 'var(--c-plum)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Digital Marketing', tag: 'Reach, measured', color: 'var(--c-royal)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Graphic Designing', tag: 'Visuals with impact', color: 'var(--c-magenta)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop' },
-    { name: 'Content Production', tag: 'Ad films, shoots, social', color: 'var(--c-coral)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1639426131676-ff5f24493f2c?fm=jpg&q=60&w=800&auto=format&fit=crop' },
-    { name: 'Influencer Marketing', tag: 'Trusted voices, real growth', color: 'var(--c-lime)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?fm=jpg&q=60&w=800&auto=format&fit=crop' },
+    { slug: 'creative-campaigns', name: 'Creative Campaigns', tag: 'Ideas that get noticed', color: 'var(--c-coral)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'brand-strategy', name: 'Brand Strategy & Ideation', tag: 'Positioning with purpose', color: 'var(--c-blue)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'content-copywriting', name: 'Content & Copywriting', tag: 'A voice people remember', color: 'var(--c-magenta)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1542435503-956c469947f6?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'brand-communication', name: 'Brand Communication', tag: 'Values into stories', color: 'var(--c-plum)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'digital-marketing', name: 'Digital Marketing', tag: 'Reach, measured', color: 'var(--c-royal)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'graphic-design', name: 'Graphic Designing', tag: 'Visuals with impact', color: 'var(--c-magenta)', on: '#FFFFFF', img: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=70&w=600&auto=format&fit=crop' },
+    { slug: 'content-production', name: 'Content Production', tag: 'Ad films, shoots, social', color: 'var(--c-coral)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1639426131676-ff5f24493f2c?fm=jpg&q=60&w=600&auto=format&fit=crop' },
+    { slug: 'influencer-marketing', name: 'Influencer Marketing', tag: 'Trusted voices, real growth', color: 'var(--c-lime)', on: '#0A0A0F', img: 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?fm=jpg&q=60&w=600&auto=format&fit=crop' },
 ];
 
 export default function ServicesList() {
@@ -67,7 +68,7 @@ export default function ServicesList() {
                         style={{ '--row-c': s.color, '--row-on': s.on }}
                         onMouseEnter={() => setActive(i)}
                     >
-                        <Link href="/services" className={styles.rowLink} data-cursor="View">
+                        <Link href={serviceHref(s.slug)} className={styles.rowLink} data-cursor="View">
                             <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
                             <span className={styles.name}>{s.name}</span>
                             <span className={styles.tag}>{s.tag}</span>

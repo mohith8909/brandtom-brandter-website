@@ -13,6 +13,15 @@
     touch-action: pan-y;
 }
 
+/* With motion on, the static pile is never shown: words stay invisible until the physics
+   takes over, so switching layouts is not counted as a layout shift (CLS). Reduced-motion
+   visitors keep the static pile; no-JS visitors get it back via the <noscript> rule in layout.js. */
+@media (prefers-reduced-motion: no-preference) {
+    .stage:not(.live) > * {
+        visibility: hidden;
+    }
+}
+
 /* Physics running: every body is positioned by transform from the top-left */
 .live {
     display: block;

@@ -1,139 +1,88 @@
+/*
+ * Our Services: a light page. White background, ink text, the logo colours as accents.
+ * The header and footer stay dark, framing the page.
+ */
 .main {
-    background-color: var(--color-black);
+    position: relative;
+    background-color: #ffffff;
     min-height: 100vh;
-    color: var(--color-white);
+    color: var(--c-ink);
+    isolation: isolate;
 }
 
+/* Soft brand-colour light across the top of the page. It sits on the page itself (not
+   the title section) and fades out on its own, so no section edge can cut it off. */
+.main::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1400px;
+    pointer-events: none;
+    background:
+        radial-gradient(42vw 42vw at 90% 8%, rgba(0, 163, 234, 0.10), transparent 70%),
+        radial-gradient(34vw 34vw at 62% 62%, rgba(255, 51, 37, 0.06), transparent 70%),
+        radial-gradient(30vw 30vw at 8% 85%, rgba(143, 215, 58, 0.06), transparent 70%);
+}
+
+/* Title */
 .titleSection {
-    padding: 180px 0 100px;
-    background: var(--color-black);
+    position: relative;
+    padding: 190px 0 90px;
+}
+
+.eyebrow {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--gradient-spectrum);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: fit-content;
+    margin-bottom: 22px;
 }
 
 .heading {
     font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(3.4rem, 11vw, 11rem);
-    letter-spacing: -0.06em;
-    color: var(--color-white);
+    letter-spacing: -0.05em;
+    color: var(--c-ink);
     line-height: 0.95;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 }
 
 .subHeading {
     font-family: var(--font-primary);
     font-size: 1.2rem;
-    color: var(--color-text-light);
+    line-height: 1.6;
+    color: rgba(10, 10, 15, 0.62);
     max-width: 600px;
 }
 
-/* Services Grid Styles */
-.servicesSection {
-    padding-bottom: 120px;
-}
-
-.servicesGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.serviceCard {
-    position: relative;
-    height: 450px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, border-color 0.3s ease;
-}
-
-.serviceCard:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-accent);
-}
-
-.cardImageWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.cardBg {
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.serviceCard:hover .cardBg {
-    transform: scale(1.1);
-}
-
-.cardOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.4));
-    z-index: 2;
-}
-
-.cardContent {
-    position: relative;
-    z-index: 3;
-    padding: 30px;
-    transform: translateY(0);
-    transition: transform 0.4s ease;
-}
-
-.cardNumber {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-.cardTitle {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--color-white);
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
-.cardDesc {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    color: var(--color-text-light);
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-/* Partnership Section */
-.partnershipSection {
-    padding: 100px 0;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Shared section label */
 .label {
     font-family: var(--font-primary);
-    font-size: 0.9rem;
-    color: var(--color-accent);
+    font-size: 0.8rem;
+    color: var(--c-magenta);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.25em;
     display: block;
     margin-bottom: 20px;
     font-weight: 700;
+}
+
+/* Partnership */
+.partnershipSection {
+    padding: 120px 0;
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid rgba(10, 10, 15, 0.08);
 }
 
 .partnershipHeading {
@@ -141,16 +90,16 @@
     font-weight: 700;
     font-size: clamp(2.4rem, 5vw, 4.5rem);
     letter-spacing: -0.045em;
-    color: var(--color-white);
+    color: var(--c-ink);
     max-width: 900px;
     margin: 0 auto;
     line-height: 1.02;
 }
 
-/* How We Help Section */
+/* How we help: a warm off-white band so it reads as its own section */
 .howWeHelpSection {
-    padding: 100px 0;
-    background: #050505;
+    padding: 120px 0;
+    background: var(--c-paper);
 }
 
 .sectionHeading {
@@ -158,19 +107,20 @@
     font-weight: 700;
     font-size: clamp(2.2rem, 4.4vw, 4rem);
     letter-spacing: -0.045em;
-    color: var(--color-white);
+    color: var(--c-ink);
     margin-bottom: 40px;
     line-height: 1.02;
+    max-width: 900px;
 }
 
 .descriptionBlock {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
     max-width: 800px;
 }
 
 .descriptionBlock p {
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: rgba(10, 10, 15, 0.68);
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -178,13 +128,38 @@
 .featuresGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 24px;
 }
 
+/* White cards, each topped with one of the logo colours */
 .featureCard {
-    background: var(--color-black);
-    padding: 40px 30px;
-    border-top: 2px solid var(--color-accent);
+    --accent: var(--c-coral);
+    position: relative;
+    background: #ffffff;
+    padding: 40px 32px 36px;
+    border-radius: 24px;
+    border: 1px solid rgba(10, 10, 15, 0.06);
+    box-shadow: 0 24px 50px -30px rgba(10, 10, 15, 0.25);
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+}
+
+.featureCard:nth-child(2) { --accent: var(--c-blue); }
+.featureCard:nth-child(3) { --accent: var(--c-lime); }
+
+.featureCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    background: var(--accent);
+}
+
+.featureCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 60px -30px rgba(10, 10, 15, 0.35);
 }
 
 .featureCard h3 {
@@ -193,32 +168,37 @@
     font-size: 1.6rem;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: var(--color-white);
-    margin-bottom: 20px;
+    color: var(--c-ink);
+    margin-bottom: 18px;
 }
 
 .featureCard p {
     font-size: 1rem;
-    color: var(--color-text-light);
+    color: rgba(10, 10, 15, 0.65);
     line-height: 1.6;
 }
 
 @media (max-width: 900px) {
-    .servicesGrid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .titleSection {
+        padding: 150px 0 60px;
     }
 
-    .serviceCard {
-        height: 400px;
-    }
-
-    .grid,
     .featuresGrid {
         grid-template-columns: 1fr;
     }
 
     .heading {
         font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .partnershipSection,
+    .howWeHelpSection {
+        padding: 90px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .featureCard {
+        transition: none;
     }
 }

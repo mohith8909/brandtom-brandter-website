@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <main>
+        <main id="main-content">
             <Header />
             <ContactHero />
             <ContactInfo />

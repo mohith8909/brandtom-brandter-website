@@ -9,10 +9,10 @@ import { gsap, useGSAP, prefersReducedMotion } from '../Motion/gsap';
  * Key words glow in their meaning colour and a hexagon photo pops in beside each.
  */
 const SENTENCE = [
-    'We', 'find', 'the', { word: 'spark', color: 'var(--c-coral)', img: '/assets/new/services_spark_1769107685292.png' },
-    'in', 'every', 'brand,', 'shape', 'it', 'into', { word: 'strategy,', color: 'var(--c-blue)', img: '/assets/new/expertise_strategy_1769107734480.png' },
-    'tell', 'it', 'through', { word: 'stories', color: 'var(--c-magenta)', img: '/assets/new/hero_designer_sketch_1769107615839.png' },
-    'and', 'scale', 'it', 'into', { word: 'growth', color: 'var(--c-lime)', img: '/assets/new/hero_digital_tech_1769107581068.png' },
+    'We', 'find', 'the', { word: 'spark', color: 'var(--c-coral)', img: '/assets/opt/manifesto-spark.webp' },
+    'in', 'every', 'brand,', 'shape', 'it', 'into', { word: 'strategy,', color: 'var(--c-blue)', img: '/assets/opt/manifesto-strategy.webp' },
+    'tell', 'it', 'through', { word: 'stories', color: 'var(--c-magenta)', img: '/assets/opt/manifesto-stories.webp' },
+    'and', 'scale', 'it', 'into', { word: 'growth', color: 'var(--c-lime)', img: '/assets/opt/manifesto-growth.webp' },
     'that', 'matters.',
 ];
 

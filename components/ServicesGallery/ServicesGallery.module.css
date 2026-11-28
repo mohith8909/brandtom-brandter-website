@@ -5,7 +5,7 @@
 
 .gallery {
     position: relative;
-    background: var(--color-black);
+    background: transparent; /* the page's white (and its soft top light) shows through */
     padding: 0 0 120px;
 }
 
@@ -28,13 +28,16 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: border-color 0.4s ease;
+    background: var(--c-ink);
+    border: 1px solid rgba(10, 10, 15, 0.06);
+    box-shadow: 0 30px 60px -34px rgba(10, 10, 15, 0.45);
+    transition: border-color 0.4s ease, box-shadow 0.6s ease;
+    scroll-margin-top: 100px; /* stacked layout: clear the fixed header */
 }
 
 .card:hover {
     border-color: var(--color-accent);
+    box-shadow: 0 40px 70px -34px rgba(255, 51, 37, 0.45);
 }
 
 .frame {
@@ -47,7 +50,7 @@
     position: absolute;
     inset: 0 -12%;
     transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
-    filter: grayscale(0.6) brightness(0.8);
+    filter: grayscale(0.35) brightness(0.85);
 }
 
 .photo img {
@@ -129,10 +132,10 @@
 
     .introLabel {
         font-family: var(--font-primary);
-        font-size: 0.85rem;
-        letter-spacing: 3px;
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
         text-transform: uppercase;
-        color: var(--color-accent);
+        color: var(--c-magenta);
         margin-bottom: 20px;
     }
 
@@ -142,14 +145,14 @@
         font-size: clamp(2rem, 3.2vw, 3.4rem);
         letter-spacing: -0.045em;
         line-height: 1.02;
-        color: var(--color-white);
+        color: var(--c-ink);
         margin-bottom: 30px;
     }
 
     .introHint {
         font-family: var(--font-primary);
         font-size: 0.9rem;
-        color: var(--color-text-light);
+        color: rgba(10, 10, 15, 0.5);
         letter-spacing: 2px;
         text-transform: uppercase;
     }
@@ -167,12 +170,12 @@
         right: 6vw;
         bottom: 6vh;
         height: 2px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(10, 10, 15, 0.1);
     }
 
     .progressFill {
         height: 100%;
-        background: var(--color-accent);
+        background: var(--gradient-spectrum);
         transform: scaleX(0);
         transform-origin: left;
     }
@@ -182,4 +185,32 @@
     .track {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+/* "Start a project" on each card */
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+    background: var(--c-coral);
+    border-color: var(--c-coral);
+}
+
+/* The card a link pointed at (/services#...) gets a coral ring for a moment (set by anchors.js) */
+.card[data-targeted] {
+    border-color: var(--c-coral);
+    box-shadow: 0 0 0 3px rgba(255, 51, 37, 0.45), 0 40px 70px -34px rgba(255, 51, 37, 0.45);
 }

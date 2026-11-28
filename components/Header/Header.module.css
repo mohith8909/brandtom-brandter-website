@@ -20,6 +20,14 @@
     transform: translateY(-100%);
 }
 
+/* Logo and buttons stay above the phone menu when it is open. (Not the whole left
+   group: it must stay unpositioned so the Services dropdown spans the full header.) */
+.logoContainer,
+.rightGroup {
+    position: relative;
+    z-index: 1002;
+}
+
 .leftGroup {
     display: flex;
     align-items: center;
@@ -59,6 +67,27 @@
 .navLink:hover {
     color: var(--color-accent);
 }
+
+/* The page you are on: a small hexagon in the logo colours under the link */
+.navLink {
+    position: relative;
+}
+
+.navLink.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 9px;
+    height: 10px;
+    margin-left: -4.5px;
+    background: var(--gradient-spectrum);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.navLink.active::after {
+    bottom: -14px;
+}
+
 
 .rightGroup {
     display: flex;
@@ -129,46 +158,6 @@
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
-.mobileMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #050505;
-    z-index: 1001;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.menuOpen {
-    transform: translateX(0);
-}
-
-.mobileNav {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    text-align: center;
-}
-
-.mobileLink {
-    color: var(--color-white);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 2.4rem;
-    letter-spacing: -0.04em;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.mobileLink:hover {
-    color: var(--color-accent);
-}
-
 @media (max-width: 1200px) {
     .nav {
         display: none;
@@ -186,9 +175,12 @@
         display: none;
     }
 
-    .ctaMagnet,
+    /* "Let's Talk" stays on every screen size, just more compact */
     .ctaButton {
-        display: none !important;
+        display: inline-flex;
+        padding: 10px 18px;
+        font-size: 13px;
+        white-space: nowrap;
     }
 
     .rightGroup {
@@ -221,5 +213,30 @@
     .hamburger {
         display: flex;
         margin-left: 0;
+    }
+}
+
+/* Phones: logo, Let's Talk, call and menu must all fit on one row (down to 320px wide) */
+@media (max-width: 600px) {
+    .header {
+        padding: 0 14px;
+    }
+
+    .logoContainer {
+        width: clamp(112px, 36vw, 180px);
+    }
+
+    .rightGroup {
+        gap: 10px;
+    }
+
+    .ctaButton {
+        padding: 9px 13px;
+        font-size: 12.5px;
+    }
+
+    .mobilePhone {
+        width: 40px !important;
+        height: 40px !important;
     }
 }

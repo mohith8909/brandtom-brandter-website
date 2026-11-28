@@ -15,48 +15,56 @@ export default function ServicesPage() {
     const services = [
         {
             id: "01.",
+            slug: "creative-campaigns",
             title: "Creative Campaigns",
             desc: "Designing and executing full-scale marketing campaigns that capture attention and drive engagement.",
             image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "02.",
+            slug: "brand-strategy",
             title: "Brand Strategy & Ideation",
             desc: "Crafting the core strategy, positioning, and innovative ideas that define your brand’s purpose.",
             image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "03.",
+            slug: "content-copywriting",
             title: "Content & Communication",
             desc: "Developing your brand’s voice through compelling copywriting, messaging, and brand communication.",
             image: "https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "04.",
+            slug: "digital-marketing",
             title: "Digital Marketing",
             desc: "Helping brands reach the right audience online through targeted ads, social media, SEO, and tools to boost visibility, drive engagement, and deliver measurable business growth.",
             image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "05.",
+            slug: "graphic-design",
             title: "Graphic Designing",
             desc: "Creating visual content that communicates ideas clearly and attractively, ensuring visual impact and effective communication.",
             image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "06.",
+            slug: "content-production",
             title: "Content Production",
             desc: "Creating engaging ad films, videos, product shots, and social media content that tell your brand’s story and drive audience engagement across platforms.",
             image: "https://images.unsplash.com/photo-1639426131676-ff5f24493f2c?fm=jpg&q=60&w=3000&auto=format&fit=crop"
         },
         {
             id: "07.",
+            slug: "brand-communication",
             title: "Brand Communication",
             desc: "Our brand communication service refines your brand’s voice, narration, and visual language to create meaningful connections with your target audience. We translate your values into simple stories that inspire trust and long-term loyalty.",
             image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop"
         },
         {
             id: "08.",
+            slug: "influencer-marketing",
             title: "Influencer Marketing",
             desc: "Influencer marketing leverages trusted creators to authentically promote brands, boosting reach, credibility, and consumer engagement.",
             image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?fm=jpg&q=60&w=800&auto=format&fit=crop"
@@ -64,11 +72,12 @@ export default function ServicesPage() {
     ];
 
     return (
-        <main className={styles.main}>
+        <main id="main-content" className={styles.main}>
             <Header />
 
             <section className={styles.titleSection}>
                 <div className="container">
+                    <FadeIn tag="span" className={styles.eyebrow}>Brandtom &amp; Brandter</FadeIn>
                     <SplitReveal tag="h1" className={styles.heading} onLoad>Our Services</SplitReveal>
                     <FadeIn tag="p" className={styles.subHeading} delay={0.2}>
                         End-to-end marketing solutions tailored to transform your vision into impact.

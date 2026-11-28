@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './Hero.module.css';
 import KineticWords from './KineticWords';
+import HeroGlass from './HeroGlass';
 import Magnetic from '../Motion/Magnetic';
 import { gsap, useGSAP, prefersReducedMotion, whenIntroDone } from '../Motion/gsap';
 
 const LINES = [
-    { text: 'From thought' },
-    { text: 'to impact.', spectrum: true },
+    { text: 'From Thoughts' },
+    { text: 'to Impact.', spectrum: true },
 ];
 
 function ChennaiClock() {
@@ -55,6 +56,8 @@ export default function Hero() {
     return (
         <section ref={root} className={styles.hero} id="home">
             <div className={styles.glow} aria-hidden="true" />
+            {/* liquid glass over the lights; follows the cursor and ripples */}
+            <HeroGlass className={styles.glass} />
 
             {/* The physical word pile sits behind the text and fills the hero */}
             <KineticWords scrollTarget={root} />
@@ -67,9 +70,11 @@ export default function Hero() {
                 </div>
 
                 <h1 className={styles.title}>
-                    {LINES.map((l) => (
+                    {LINES.map((l, i) => (
                         <span key={l.text} className={styles.titleLine}>
                             <span className={`${styles.lineInner} ${l.spectrum ? styles.spectrum : ''}`}>{l.text}</span>
+                            {/* the lines are blocks visually; this space keeps "Thoughts to" as two words for search engines and screen readers */}
+                            {i < LINES.length - 1 && ' '}
                         </span>
                     ))}
                 </h1>
